@@ -14,8 +14,9 @@ router.get('/get/all', function(req, res, next) {
 });
 
 router.get('/get/train_tickets', function(req, res, next) {
-    var date = req.query.date;
-    query('select * from zk3 where date_time=?', [date], function(err, result) {
+    var date = req.query.data;
+    console.log(req.query)
+    query('select * from zk3 where date_time=?', ['2018-' + date], function(err, result) {
         if (err) {
             res.json({ code: 0, msg: err })
         } else {
